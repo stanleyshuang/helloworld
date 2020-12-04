@@ -8,11 +8,14 @@ env="$base_dir/$1"
 #  |-- $base_dir (_build):
 #  |      |-- $env:
 #  |            |-- app --> $apphome
+#  |            |-- data --> $apphome/data
 #  |-- app: source code --> $apphome
+#  |-- data: the data --> $apphome/data
 #  |-- base: docker base images
 
 # $apphome
 #  |-- venv: venv
+#  |-- data: the data
 
 ### Environment
 if [ $# != 1 ]; then
