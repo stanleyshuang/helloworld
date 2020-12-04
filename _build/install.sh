@@ -56,6 +56,15 @@ if [ -d "$env/app" ]; then
         cp -a $env/app/. $apphome/
 fi
 
+### update data folder
+echo "cp -a $repo/data/. $apphome/data/"
+      cp -a $repo/data/. $apphome/data/
+
+if [ -d "$env/data" ]; then
+  echo "cp -a $env/data/. $apphome/data/"
+        cp -a $env/data/. $apphome/data/
+fi
+
 ### run script
 echo "-- Run the following script ----"
 echo "cd $apphome/"
