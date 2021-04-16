@@ -19,11 +19,7 @@ all_lines = get_lines(input_file)
 
 ### process all lines
 for line in all_lines:
-    line = line.replace("<li style=\"font-weight: 400;\">", "<li>")
-    line = line.replace("<span style=\"font-weight: 400;\">", "")
-    line = line.replace("</span>", "")
-    line = line.replace("<p><strong>Summary</strong></p>", "<h3>Summary</h3>")
-    line = line.replace("<p><strong>Recommendation</strong></p>", "<h3>Recommendation</h3>")
-    line = line.replace("<li>Open the <strong>App Center</strong> and then click .<br>", "<li>Open the <strong>App Center</strong> and then click <img src=\"https://www.qnap.com/i/_upload/support/images/magnifier.png\" style=\"width: 18px;\"> .<br>.<br>")
+    line = line.replace("<u>product support status</u>", "<a href=\"https://www.qnap.com/go/product/eol.php\">product support status</a>")
+    line = line.replace("<li>Open the <strong>App Center</strong> and then click <img src=\"cid:Image_0.png\" />.</li></ol>", "<li>Open the <strong>App Center</strong> and then click <img src=\"https://www.qnap.com/i/_upload/support/images/magnifier.png\" style=\"width: 18px;\"> .<br>")
 
     print(line)
