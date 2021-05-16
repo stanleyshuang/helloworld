@@ -9,6 +9,11 @@ import os
 import sys
 from util.util_text_file import get_lines
 
+def output_text(filepath, content):
+	fp = open(filepath, "a")	# 開啟檔案
+ 	fp.write(content)			# 寫入 This is a testing! 到檔案
+ 	fp.close()					# 關閉檔案
+
 ### get argv[1] as input
 if len(sys.argv) >=2 and sys.argv[1]:
 	input_file = sys.argv[1]
@@ -27,12 +32,5 @@ for line in all_lines:
     line = line.replace("<img src=\"cid:Image_0.png\" />", "<img src=\"https://www.qnap.com/i/_upload/support/images/magnifier.png\" style=\"width: 18px;\">")
     output += line
 
-# 開啟檔案
 filename, file_extension = os.path.splitext(input_file)
-fp = open(filename + ".o.html", "a")
- 
-# 寫入 This is a testing! 到檔案
-fp.write(output)
- 
-# 關閉檔案
-fp.close()
+output_text(filename + ".o.html", output)
