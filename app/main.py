@@ -5,6 +5,7 @@
 # Project:  helloworld 1.0
 # Date:     2020-12-04
 #
+import os
 import sys
 from util.util_text_file import get_lines
 
@@ -17,13 +18,21 @@ else:
 ### read file in all_lines
 all_lines = get_lines(input_file)
 
+
+output = ""
 ### process all lines
 for line in all_lines:
-    line = line.replace("<li style=\"font-weight: 400;\">", "<li>")
-    line = line.replace("<span style=\"font-weight: 400;\">", "")
-    line = line.replace("</span>", "")
     line = line.replace("<p><strong>Summary</strong></p>", "<h3>Summary</h3>")
     line = line.replace("<p><strong>Recommendation</strong></p>", "<h3>Recommendation</h3>")
-    line = line.replace("<li>Open the <strong>App Center</strong> and then click .<br>", "<li>Open the <strong>App Center</strong> and then click <img src=\"https://www.qnap.com/i/_upload/support/images/magnifier.png\" style=\"width: 18px;\"> .<br>.<br>")
+    line = line.replace("<img src=\"cid:Image_0.png\" />", "<img src=\"https://www.qnap.com/i/_upload/support/images/magnifier.png\" style=\"width: 18px;\">")
+    output += line
 
-    print(line)
+# 開啟檔案
+filename, file_extension = os.path.splitext(input_file)
+fp = open(filename + ".o.html", "a")
+ 
+# 寫入 This is a testing! 到檔案
+fp.write(output)
+ 
+# 關閉檔案
+fp.close()
