@@ -27,10 +27,15 @@ all_lines = get_lines(input_file)
 output = ""
 ### process all lines
 for line in all_lines:
+    if line == '\n':
+        line = '<br>\n'
     line = line.replace("<p><strong>Summary</strong></p>", "<h3>Summary</h3>")
     line = line.replace("<p><strong>Recommendation</strong></p>", "<h3>Recommendation</h3>")
     line = line.replace("<img src=\"cid:Image_0.png\" />", "<img src=\"https://www.qnap.com/i/_upload/support/images/magnifier.png\" style=\"width: 18px;\">")
     output += line
+
+output = output.replace("</li></ol>\n<p>", "<br>\n")
+output = output.replace("</p>\n<li>", "</li>\n<li>")
 
 filename, file_extension = os.path.splitext(input_file)
 output_text(filename + ".o.html", output)
