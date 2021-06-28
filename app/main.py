@@ -7,7 +7,7 @@
 #
 import datetime, json
 import os, sys
-import elementpath
+# import elementpath
 import xml.etree.ElementTree as ET
 from util.util_text_file import get_lines
 
